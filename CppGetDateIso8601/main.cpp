@@ -56,7 +56,7 @@ const std::string GetDateIso8601Stl()
     std::stringstream s;
     s << (now->tm_mday);
     day = s.str();
-    if (day.size() == 1) day = std::string("0") + day;
+    if (day.size() == 1) day = "0" + day;
   }
   assert(day.size() == 2);
   const std::string date{
