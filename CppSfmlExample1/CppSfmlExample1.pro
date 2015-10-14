@@ -1,4 +1,4 @@
 include(../../ConsoleApplicationNoWeffcpp.pri)
-include(../../Libraries/Sfml.pri)
+include(../../RibiLibraries/Sfml.pri)
 
 SOURCES += main.cpp
