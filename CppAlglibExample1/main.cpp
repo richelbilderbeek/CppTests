@@ -2,7 +2,11 @@
 
 #include <cassert>
 #include <iostream>
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wignored-qualifiers"
 #include "interpolation.h"
+#pragma GCC diagnostic pop
 
 int main()
 {
