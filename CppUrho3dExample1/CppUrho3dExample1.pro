@@ -2,8 +2,8 @@
 #  std::system("ln -s ../../Libraries/Urho3D/bin/Data"); //RJCB
 #  std::system("ln -s ../../Libraries/Urho3D/bin/CoreData"); //RJCB
 
-include(../../ConsoleApplicationNoWeffcpp.pri)
-include(../../Libraries/Urho3d.pri)
+include(../../RibiLibraries/ConsoleApplicationNoWeffcpp.pri)
+include(../../RibiLibraries/Urho3d.pri)
 
 
 SOURCES += HelloWorld.cpp
