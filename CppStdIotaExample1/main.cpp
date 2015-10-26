@@ -10,10 +10,10 @@ int main()
 
   //Let iota assign incrementing values to the std::vector,
   //starting from zero
-  std::iota(v.begin(),v.end(),0);
+  std::iota(std::begin(v),std::end(v),0);
 
   //Show the std::vector
-  std::copy(v.begin(),v.end(),std::ostream_iterator<int>(std::cout," "));
+  std::copy(std::begin(v),std::end(v),std::ostream_iterator<int>(std::cout," "));
 }
 
 /*

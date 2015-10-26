@@ -4,19 +4,13 @@
 
 int main()
 {
-  std::vector<int> v;
-  v.push_back(0);
-  v.push_back(1);
-  v.push_back(2);
-  v.push_back(2);
-  v.push_back(3);
-  v.push_back(4);
+  std::vector<int> v = {0,1,2,2,3,4};
 
-  assert(std::adjacent_find(v.begin(),v.end())!=v.end());
-  assert(*std::adjacent_find(v.begin(),v.end())==2);
+  assert(std::adjacent_find(std::begin(v),std::end(v))!=std::end(v));
+  assert(*std::adjacent_find(std::begin(v),std::end(v))==2);
 
   //Remove duplicate
   v[2]=5;
 
-  assert(std::adjacent_find(v.begin(),v.end())==v.end());
+  assert(std::adjacent_find(std::begin(v),std::end(v))==std::end(v));
 }
