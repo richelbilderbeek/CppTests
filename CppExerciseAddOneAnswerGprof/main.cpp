@@ -317,55 +317,106 @@ void AddBoostLambdaAssignment2nd(std::vector<int>& v)
   std::for_each(v.begin(),v.end(), boost::lambda::_1 = 1 + boost::lambda::_1);
 }
 
-void AddCpp11ForPreIncrement(std::vector<int>& v)
+void AddRangedForPreIncrement(std::vector<int>& v)
 {
   for(int &i: v) { ++i; }
 }
 
-void AddCpp11ForPostIncrement(std::vector<int>& v)
+void AddRangedForPostIncrement(std::vector<int>& v)
 {
   for(int &i: v) { i++; }
 }
 
-void AddCpp11ForIncrease(std::vector<int>& v)
+void AddRangedForIncrease(std::vector<int>& v)
 {
   for(int &i: v) { i+=1; }
 }
 
-void AddCpp11ForAssignment1st(std::vector<int>& v)
+void AddRangedForAssignment1st(std::vector<int>& v)
 {
   for(int &i: v) { i=1+i; }
 }
 
-void AddCpp11ForAssignment2nd(std::vector<int>& v)
+void AddRangedForAssignment2nd(std::vector<int>& v)
 {
   for(int &i: v) { i=i+1; }
 }
 
-void AddCpp11LambdaPreIncrement(std::vector<int>& v)
+void AddAutoRefRangedForPreIncrement(std::vector<int>& v)
+{
+  for(auto &i: v) { ++i; }
+}
+
+void AddAutoRefRangedForPostIncrement(std::vector<int>& v)
+{
+  for(auto &i: v) { i++; }
+}
+
+void AddAutoRefRangedForIncrease(std::vector<int>& v)
+{
+  for(auto &i: v) { i+=1; }
+}
+
+void AddAutoRefRangedForAssignment1st(std::vector<int>& v)
+{
+  for(auto &i: v) { i=1+i; }
+}
+
+void AddAutoRefRangedForAssignment2nd(std::vector<int>& v)
+{
+  for(auto &i: v) { i=i+1; }
+}
+
+void AddLambdaPreIncrement(std::vector<int>& v)
 {
   std::for_each(v.begin(),v.end(), [](int&i) { ++i; } );
 }
 
-void AddCpp11LambdaPostIncrement(std::vector<int>& v)
+void AddLambdaPostIncrement(std::vector<int>& v)
 {
   std::for_each(v.begin(),v.end(), [](int&i) { i++; } );
 }
 
-void AddCpp11LambdaIncrease(std::vector<int>& v)
+void AddLambdaIncrease(std::vector<int>& v)
 {
   std::for_each(v.begin(),v.end(), [](int&i) { i+=1; } );
 }
 
-void AddCpp11LambdaAssignment1st(std::vector<int>& v)
+void AddLambdaAssignment1st(std::vector<int>& v)
 {
   std::for_each(v.begin(),v.end(), [](int&i) { i = i + 1; } );
 }
 
-void AddCpp11LambdaAssignment2nd(std::vector<int>& v)
+void AddLambdaAssignment2nd(std::vector<int>& v)
 {
   std::for_each(v.begin(),v.end(), [](int&i) { i = 1 + i; } );
 }
+
+void AddAutoRefLambdaPreIncrement(std::vector<int>& v)
+{
+  std::for_each(v.begin(),v.end(), [](auto&i) { ++i; } );
+}
+
+void AddAutoRefLambdaPostIncrement(std::vector<int>& v)
+{
+  std::for_each(v.begin(),v.end(), [](auto&i) { i++; } );
+}
+
+void AddAutoRefLambdaIncrease(std::vector<int>& v)
+{
+  std::for_each(v.begin(),v.end(), [](auto&i) { i+=1; } );
+}
+
+void AddAutoRefLambdaAssignment1st(std::vector<int>& v)
+{
+  std::for_each(v.begin(),v.end(), [](auto&i) { i = i + 1; } );
+}
+
+void AddAutoRefLambdaAssignment2nd(std::vector<int>& v)
+{
+  std::for_each(v.begin(),v.end(), [](auto&i) { i = 1 + i; } );
+}
+
 
 //From http://www.richelbilderbeek.nl/CppExerciseAddOneAnswer.htm
 struct Function
@@ -493,27 +544,49 @@ std::vector<Function> GetFunctions()
   v.push_back(Function(AddBoostLambdaAssignment2nd,
     "Boost.Lambda, assignment 2nd"));
   //C++11 ranged for loop
-  v.push_back(Function(AddCpp11ForPreIncrement,
+  v.push_back(Function(AddRangedForPreIncrement,
     "C++11 ranged for loop, pre-increment"));
-  v.push_back(Function(AddCpp11ForPostIncrement,
+  v.push_back(Function(AddRangedForPostIncrement,
     "C++11 ranged for loop, post-increment"));
-  v.push_back(Function(AddCpp11ForIncrease,
+  v.push_back(Function(AddRangedForIncrease,
     "C++11 ranged for loop, increase"));
-  v.push_back(Function(AddCpp11ForAssignment1st,
+  v.push_back(Function(AddRangedForAssignment1st,
     "C++11 ranged for loop, assignment 1st"));
-  v.push_back(Function(AddCpp11ForAssignment2nd,
+  v.push_back(Function(AddRangedForAssignment2nd,
     "C++11 ranged for loop, assignment 2nd"));
+  //C++11 ranged for loop with auto&
+  v.push_back(Function(AddAutoRefRangedForPreIncrement,
+    "C++11 auto& ranged for loop, pre-increment"));
+  v.push_back(Function(AddAutoRefRangedForPostIncrement,
+    "C++11 auto& ranged for loop, post-increment"));
+  v.push_back(Function(AddAutoRefRangedForIncrease,
+    "C++11 auto& ranged for loop, increase"));
+  v.push_back(Function(AddAutoRefRangedForAssignment1st,
+    "C++11 auto& ranged for loop, assignment 1st"));
+  v.push_back(Function(AddAutoRefRangedForAssignment2nd,
+    "C++11 auto& ranged for loop, assignment 2nd"));
   //C++11 Lambda
-  v.push_back(Function(AddCpp11LambdaPreIncrement,
-    "C++11 lambda expression, pre-increment"));
-  v.push_back(Function(AddCpp11LambdaPostIncrement,
-    "C++11 lambda expression, post-increment"));
-  v.push_back(Function(AddCpp11LambdaIncrease,
-    "C++11 lambda expression, increase"));
-  v.push_back(Function(AddCpp11LambdaAssignment1st,
-    "C++11 lambda expression, assignment 1st"));
-  v.push_back(Function(AddCpp11LambdaAssignment2nd,
-    "C++11 lambda expression, assignment 2nd"));
+  v.push_back(Function(AddLambdaPreIncrement,
+    "Algorithm, lambda expression, pre-increment"));
+  v.push_back(Function(AddLambdaPostIncrement,
+    "Algorithm, lambda expression, post-increment"));
+  v.push_back(Function(AddLambdaIncrease,
+    "Algorithm, lambda expression, increase"));
+  v.push_back(Function(AddLambdaAssignment1st,
+    "Algorithm, lambda expression, assignment 1st"));
+  v.push_back(Function(AddLambdaAssignment2nd,
+    "Algorithm, lambda expression, assignment 2nd"));
+  //C++11 Lambda with auto&
+  v.push_back(Function(AddAutoRefLambdaPreIncrement,
+    "Algorithm, auto& lambda expression, pre-increment"));
+  v.push_back(Function(AddAutoRefLambdaPostIncrement,
+    "Algorithm, auto& lambda expression, post-increment"));
+  v.push_back(Function(AddAutoRefLambdaIncrease,
+    "Algorithm, auto& lambda expression, increase"));
+  v.push_back(Function(AddAutoRefLambdaAssignment1st,
+    "Algorithm, auto& lambda expression, assignment 1st"));
+  v.push_back(Function(AddAutoRefLambdaAssignment2nd,
+    "Algorithm, auto& lambda expression, assignment 2nd"));
   return v;
 }
 
@@ -731,5 +804,87 @@ Iterator, pre-increment, non-const end: 0.61335
 Algorithm, inline function, post-increment: 0.613957
 C++11 lambda expression, post-increment: 0.614741
 Total running time: 37.8573 seconds.
+
+*/
+
+/*
+
+Size std::vector: 100000000
+Repeats: 10
+Timer minimal interval: 1e-06
+Results (best result first):
+C++11 ranged for loop, increase: 1.9023
+Iterator, increase, non-const end: 1.90246
+C++11 lambda expression, pre-increment: 1.90288
+Iterator, post-increment, non-const end: 1.90308
+C++11 ranged for loop, post-increment: 1.90314
+For-loop, pre-increment, non-const size: 1.90319
+Boost.Lambda, assignment 1st: 1.9032
+C++11 auto& lambda expression, assignment 1st: 1.90331
+Iterator, assignment 1st, const end: 1.90338
+Boost.Lambda, post-increment: 1.9034
+Algorithm, functor, inline, assignment 2nd: 1.90342
+C++11 lambda expression, assignment 2nd: 1.90351
+C++11 auto& ranged for loop, pre-increment: 1.90352
+BOOST_FOREACH, assignment 1st: 1.90354
+BOOST_FOREACH, assignment 2nd: 1.90363
+Iterator, assignment 1st, non-const end: 1.90372
+Algorithm, functor, non-inline, post-increment: 1.90378
+Iterator, pre-increment, const end: 1.90382
+Algorithm, inline function, pre-increment: 1.90395
+For-loop, increase, non-const size: 1.90396
+C++11 ranged for loop, pre-increment: 1.90396
+Algorithm, functor, non-inline, increase: 1.90398
+Algorithm, std::plus, std::bind1st: 1.90406
+Boost.Lambda, assignment 2nd: 1.90417
+Algorithm, inline function, increase: 1.90418
+For-loop, assignment 2nd, non-const size: 1.90471
+BOOST_FOREACH, increase: 1.90498
+For-loop, pre-increment, const size: 1.90519
+C++11 auto& lambda expression, pre-increment: 1.90521
+Boost.Lambda, increase: 1.90529
+Iterator, post-increment, const end: 1.90532
+Algorithm, inline function, assignment 2nd: 1.90536
+Boost.Lambda, pre-increment: 1.90541
+For-loop, increase, const size: 1.90554
+Algorithm, inline function, post-increment: 1.90571
+Algorithm, functor, non-inline, assignment 1st: 1.90575
+BOOST_FOREACH, pre-increment: 1.90581
+For-loop, assignment 1st, const size: 1.90592
+C++11 auto& ranged for loop, assignment 2nd: 1.90592
+C++11 auto& ranged for loop, post-increment: 1.90603
+BOOST_FOREACH, post-increment: 1.90622
+C++11 lambda expression, assignment 1st: 1.90624
+For-loop, post-increment, const size: 1.9063
+For-loop, assignment 2nd, const size: 1.90633
+C++11 lambda expression, post-increment: 1.90646
+Algorithm, functor, inline, pre-increment: 1.90671
+Algorithm, functor, non-inline, assignment 2nd: 1.90674
+C++11 lambda expression, increase: 1.90691
+Algorithm, std::plus, std::bind2nd: 1.90702
+Iterator, increase, const end: 1.90713
+C++11 auto& ranged for loop, increase: 1.90737
+Algorithm, functor, non-inline, pre-increment: 1.90751
+Iterator, assignment 2nd, non-const end: 1.90768
+C++11 auto& lambda expression, post-increment: 1.908
+C++11 ranged for loop, assignment 2nd: 1.90867
+For-loop, assignment 1st, non-const size: 1.90889
+Algorithm, functor, inline, increase: 1.90896
+Iterator, assignment 2nd, const end: 1.90905
+Algorithm, functor, inline, post-increment: 1.90974
+C++11 auto& lambda expression, assignment 2nd: 1.91021
+C++11 auto& ranged for loop, assignment 1st: 1.91119
+C++11 auto& lambda expression, increase: 1.91432
+Iterator, pre-increment, non-const end: 1.91814
+Algorithm, functor, inline, assignment 1st: 1.91832
+C++11 ranged for loop, assignment 1st: 1.91843
+Algorithm, inline function, assignment 1st: 1.91995
+For-loop, post-increment, non-const size: 1.92586
+Algorithm, non-inline function, increase: 2.1804
+Algorithm, non-inline function, assignment 1st: 2.19343
+Algorithm, non-inline function, pre-increment: 2.19627
+Algorithm, non-inline function, assignment 2nd: 2.48418
+Algorithm, non-inline function, post-increment: 2.49551
+Total running time: 139.546 seconds.
 
 */

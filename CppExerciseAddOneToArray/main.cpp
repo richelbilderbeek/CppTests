@@ -41,6 +41,8 @@ void AddForPreIncrementConstSize(int * const v, const int size)
   for (int i=0; i!=size; ++i) ++v[i];
 }
 
+
+
 void AddIteratorAssignment1stConstEnd(int * const v, const int size)
 {
   const int * const j = v + size;
