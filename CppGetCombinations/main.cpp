@@ -8,10 +8,10 @@
 /// {1,2,3} -> { {}, {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3} }
 //From http://www.richelbilderbeek.nl/CppGetCombinations.htm
 template <class T>
-const std::vector<std::vector<T> > GetCombinations(const std::vector<T>& v)
+std::vector<std::vector<T>> GetCombinations(const std::vector<T>& v)
 {
-  std::vector<std::vector<T> > result;
-  const int sz = static_cast<int>(v.size());
+  std::vector<std::vector<T>> result;
+  const int sz{static_cast<int>(v.size())};
   const int n_combinations = (1 << sz);
 
   for (int i=0; i!=n_combinations; ++i)
@@ -43,14 +43,14 @@ int main()
   assert(GetCombinations(std::vector<int>( {1,2,3,4,5} ) ).size() == 32);
   //Assume the elements are correct
   {
-    const std::vector<std::vector<int> > v = GetCombinations(std::vector<int>( { 1 } ) );
+    const std::vector<std::vector<int>> v = GetCombinations(std::vector<int>( { 1 } ) );
     const std::vector<int> expected_0 = {};
     const std::vector<int> expected_1 = {1};
     assert(std::count(v.begin(),v.end(),expected_0));
     assert(std::count(v.begin(),v.end(),expected_1));
   }
   {
-    const std::vector<std::vector<int> > v = GetCombinations(std::vector<int>( { 1,2 } ) );
+    const std::vector<std::vector<int>> v = GetCombinations(std::vector<int>( { 1,2 } ) );
     const std::vector<int> expected_0 = {};
     const std::vector<int> expected_1 = {1};
     const std::vector<int> expected_2 = {2};
@@ -61,7 +61,7 @@ int main()
     assert(std::count(v.begin(),v.end(),expected_3));
   }
   {
-    const std::vector<std::vector<int> > v = GetCombinations(std::vector<int>( { 1,2,3 } ) );
+    const std::vector<std::vector<int>> v = GetCombinations(std::vector<int>( { 1,2,3 } ) );
     const std::vector<int> expected_0 = {};
     const std::vector<int> expected_1 = {1};
     const std::vector<int> expected_2 = {2};
