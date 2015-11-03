@@ -11,7 +11,11 @@ int main()
   q.push_front("I get added in the front");
   q.push_back("I get added in the back");
   //Display q
-  std::copy(q.begin(),q.end(),std::ostream_iterator<std::string>(std::cout,"\n"));
+  std::copy(
+    std::begin(q),
+    std::end(q),
+    std::ostream_iterator<std::string>(std::cout,"\n")
+  );
 }
 
 /* Screen output:
