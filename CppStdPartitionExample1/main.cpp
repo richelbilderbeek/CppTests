@@ -27,13 +27,12 @@ int main()
   for (int i=1; i!=10; ++i) v.push_back(i);
 
   //Partition the std::vector in primes and non-primes
-  typedef std::vector<int>::iterator Iterator;
-  const Iterator p_end = std::partition(v.begin(),v.end(),IsPrime);
+  const auto p_end = std::partition(std::begin(v),std::end(v),IsPrime);
 
   std::cout << "Primes: ";
-  std::copy(v.begin(),p_end,std::ostream_iterator<int>(std::cout," "));
+  std::copy(std::begin(v),p_end,std::ostream_iterator<int>(std::cout," "));
   std::cout << "\nNon-primes: ";
-  std::copy(p_end,v.end(),std::ostream_iterator<int>(std::cout," "));
+  std::copy(p_end,std::end(v),std::ostream_iterator<int>(std::cout," "));
   std::cout << "\n";
 }
 
