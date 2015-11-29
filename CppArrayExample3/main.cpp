@@ -1,3 +1,4 @@
+//It cannot be checked if sz is indeed the size of the array
 void iota(int a[], const int sz) {
   for (int i=0; i!=sz; ++i) {
     a[i] = i;

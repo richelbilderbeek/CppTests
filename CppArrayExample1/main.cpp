@@ -24,6 +24,8 @@ int main()
       "WARNING: you might have expected this to be 3");
     assert((sizeof(v) / sizeof(int) == 1 || sizeof(v) / sizeof(int) == 2)
       && "WARNING: you might have expected this to be 3");
+    static_assert(sizeof(v) == sizeof(int*),
+      "v is just an int*");
 
     assert(v[1] == 1);
 

@@ -9,7 +9,7 @@
 
 //Define the type of graph:
 //boost::adjacency_list is the 'Swiss army knife' graph
-typedef boost::adjacency_list
+using my_graph = boost::adjacency_list
 <
   //Store all edges as a std::vector
   boost::vecS,
@@ -24,13 +24,15 @@ typedef boost::adjacency_list
   boost::property<boost::edge_weight_t,double>,
   //Graph itself has a std::string name
   boost::property<boost::graph_name_t,std::string>
-> Graph;
+>;
 
 
-Graph Create()
+my_graph create_my_graph()
 {
-
-  Graph g;
+  using boost::add_edge;
+  using boost::add_vertex;
+  using my_vertex_descriptor = my_graph::vertex_descriptor;
+  my_graph g;
 
   //All vertex names
   //Note: cannot use spaces
@@ -40,10 +42,10 @@ Graph Create()
   names.push_back("Dr_C");
   names.push_back("Prof_D");
 
-  const Graph::vertex_descriptor v0 = boost::add_vertex(names[0],g);
-  const Graph::vertex_descriptor v1 = boost::add_vertex(names[1],g);
-  const Graph::vertex_descriptor v2 = boost::add_vertex(names[2],g);
-  const Graph::vertex_descriptor v3 = boost::add_vertex(names[3],g);
+  const my_vertex_descriptor v0 = add_vertex(names[0],g);
+  const my_vertex_descriptor v1 = add_vertex(names[1],g);
+  const my_vertex_descriptor v2 = add_vertex(names[2],g);
+  const my_vertex_descriptor v3 = add_vertex(names[3],g);
 
   std::vector<double> frequencies;
   frequencies.push_back(0.9);
@@ -51,10 +53,10 @@ Graph Create()
   frequencies.push_back(0.6);
   frequencies.push_back(0.1);
 
-  boost::add_edge(v0,v1,frequencies[0],g);
-  boost::add_edge(v1,v2,frequencies[1],g);
-  boost::add_edge(v2,v3,frequencies[2],g);
-  boost::add_edge(v0,v3,frequencies[3],g);
+  add_edge(v0,v1,frequencies[0],g);
+  add_edge(v1,v2,frequencies[1],g);
+  add_edge(v2,v3,frequencies[2],g);
+  add_edge(v0,v3,frequencies[3],g);
 
   return g;
 }
@@ -64,8 +66,8 @@ class custom_bfs_visitor : public boost::default_bfs_visitor
 {
 public:
 
-  template < typename Vertex, typename Graph >
-  void discover_vertex(Vertex u, const Graph & g) const
+  template < typename Vertex, typename graph >
+  void discover_vertex(Vertex u, const graph & g) const
   {
     std::cout << u << std::endl;
   }
@@ -73,7 +75,26 @@ public:
 
 int main()
 {
-  const auto g(Create());
-  Create().named_vertices()
-  TODO: Iterate over nodes
+
+  const my_graph g{create_my_graph()};
+  //std::cout << g << std::endl; //This does not work without defining it
+
+  //Show vertices
+  {
+    using my_vertex_iterator = boost::graph_traits<my_graph>::vertex_iterator;
+    my_vertex_iterator i, j;
+    boost::tie(i, j) = boost::vertices(g);
+    for ( ; i != j; ++i) {
+      std::cout << (*i) << std::endl;
+    }
+  }
+  //Show edges
+  {
+    using my_edge_iterator = boost::graph_traits<my_graph>::edge_iterator;
+    my_edge_iterator i, j;
+    boost::tie(i, j) = boost::edges(g);
+    for ( ; i != j; ++i) {
+      std::cout << (*i) << std::endl;
+    }
+  }
 }

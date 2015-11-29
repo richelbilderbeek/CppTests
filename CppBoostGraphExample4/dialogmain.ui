@@ -14,7 +14,7 @@
    <string>CppGraphExample4</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset resource="CppBoostGraphExample4.qrc">
     <normaloff>:/images/R.png</normaloff>:/images/R.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -39,7 +39,7 @@
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="resources.qrc">:/images/R.png</pixmap>
+          <pixmap resource="CppBoostGraphExample4.qrc">:/images/R.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -54,7 +54,7 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="CppBoostGraphExample4.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -14,6 +14,8 @@ class DialogMain : public QDialog
 
 public:
   explicit DialogMain(QWidget *parent = 0);
+  DialogMain(const DialogMain&) = delete;
+  DialogMain& operator=(const DialogMain&) = delete;
   ~DialogMain();
 
 private:

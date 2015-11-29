@@ -9,7 +9,7 @@ int main()
 {
   //Define the type of graph:
   //boost::adjacency_list is the 'Swiss army knife' graph
-  typedef boost::adjacency_list
+  using graph = boost::adjacency_list
   <
     //Store all edges as a std::vector
     boost::vecS,
@@ -24,9 +24,9 @@ int main()
     boost::property<boost::edge_weight_t,double>,
     //Graph itself has a std::string name
     boost::property<boost::graph_name_t,std::string>
-  > Graph;
+  >;
 
-  Graph  g;
+  graph g;
 
   //All vertex names
   //Note: cannot use spaces
@@ -36,10 +36,10 @@ int main()
   names.push_back("Dr_C");
   names.push_back("Prof_D");
 
-  const Graph::vertex_descriptor v0 = boost::add_vertex(names[0],g);
-  const Graph::vertex_descriptor v1 = boost::add_vertex(names[1],g);
-  const Graph::vertex_descriptor v2 = boost::add_vertex(names[2],g);
-  const Graph::vertex_descriptor v3 = boost::add_vertex(names[3],g);
+  const graph::vertex_descriptor v0 = boost::add_vertex(names[0],g);
+  const graph::vertex_descriptor v1 = boost::add_vertex(names[1],g);
+  const graph::vertex_descriptor v2 = boost::add_vertex(names[2],g);
+  const graph::vertex_descriptor v3 = boost::add_vertex(names[3],g);
 
   std::vector<double> frequencies;
   frequencies.push_back(0.9);
@@ -60,7 +60,9 @@ int main()
     p.property("label", boost::get(boost::edge_weight, g));
     p.property("weight", boost::get(boost::edge_weight, g));
     p.property("node_id", boost::get(boost::vertex_name, g));
+    //FAILS
     //boost::write_graphviz(f,g,p); //Does not compile anymore, since 2014-03-04
+    //boost::write_graphviz(f,g); //Gives too little info
     f.close();
   }
 

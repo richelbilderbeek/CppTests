@@ -14,7 +14,8 @@ private:
   std::vector<int> m_v; //Make copying heavy
 };
 
-void f(Individual v[sz])
+//This does not copy the array
+void f(Individual v[])
 {
   for (int i=0; i!=sz; ++i)
   {

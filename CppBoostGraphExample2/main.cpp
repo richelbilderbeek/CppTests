@@ -1,14 +1,11 @@
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Weffc++"
-#pragma GCC diagnostic ignored "-Wunused-local-typedefs"
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/graphviz.hpp>
-#pragma GCC diagnostic pop
+
 int main()
 {
   //Define the type of graph:
   //boost::adjacency_list is the 'Swiss army knife' graph
-  typedef boost::adjacency_list
+  using graph = boost::adjacency_list
   <
     //Store all edges as a std::vector
     boost::vecS,
@@ -21,9 +18,9 @@ int main()
     boost::property<boost::vertex_name_t,std::string>,
     //All edges are relation of type std::string
     boost::property<boost::edge_name_t,std::string>
-  > Graph;
+  >;
 
-  Graph  g;
+  graph g;
 
   std::vector<std::string> names;
   names.push_back("Mr. A");
@@ -31,10 +28,10 @@ int main()
   names.push_back("Dr. C");
   names.push_back("Prof. D");
 
-  const Graph::vertex_descriptor v0 = boost::add_vertex(names[0],g);
-  const Graph::vertex_descriptor v1 = boost::add_vertex(names[1],g);
-  const Graph::vertex_descriptor v2 = boost::add_vertex(names[2],g);
-  const Graph::vertex_descriptor v3 = boost::add_vertex(names[3],g);
+  const graph::vertex_descriptor v0 = boost::add_vertex(names[0],g);
+  const graph::vertex_descriptor v1 = boost::add_vertex(names[1],g);
+  const graph::vertex_descriptor v2 = boost::add_vertex(names[2],g);
+  const graph::vertex_descriptor v3 = boost::add_vertex(names[3],g);
 
   std::vector<std::string> relations;
   relations.push_back("Married");
@@ -60,5 +57,10 @@ int main()
   }
 
   //View the output directly using KGraphViewerer
-  std::system("kgraphviewer test.dot");
+  const int error{
+    std::system("kgraphviewer test.dot")
+  };
+  if (error != 0) {
+    std::cerr << "system commmand failed" << std::endl;
+  }
 }

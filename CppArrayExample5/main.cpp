@@ -95,13 +95,12 @@ int main()
 }
 
 
-/* When #define USE_IMPROVED in debug mode
+/* Screen output
 
-
-*/
-
-/* When #define USE_IMPROVED in release mode
-
-
+UseArray completed in 1.031 seconds
+UseStdArry completed in 2.017 seconds
+UseVector completed in 1.02 seconds
+The whole thing completed in 4.069 seconds
+Press <RETURN> to close this window...
 
 */

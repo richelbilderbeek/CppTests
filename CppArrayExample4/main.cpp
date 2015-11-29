@@ -10,6 +10,9 @@
 //#define USE_ORIGINAL
 #define USE_IMPROVED
 
+//#ifndef NDEBUG
+//#warning Running benchmarks in debug mode is misleading. Please compile in release mode
+//#endif
 
 class TestTimer
 {
