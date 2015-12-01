@@ -10,7 +10,7 @@
 
 ///Returns the path of a filename
 ///From http://www.richelbilderbeek.nl/CppGetPath.htm
-const std::string GetPathStl(const std::string& filename)
+std::string GetPathStl(const std::string& filename)
 {
   const int a = filename.rfind("\\",filename.size());
   const int b = filename.rfind("/",filename.size());
@@ -21,14 +21,14 @@ const std::string GetPathStl(const std::string& filename)
 
 ///Returns the path of a filename
 //From http://www.richelbilderbeek.nl/CppGetPath.htm
-const std::string GetPathBoostFilesystem(const std::string& filename)
+std::string GetPathBoostFilesystem(const std::string& filename)
 {
   return boost::filesystem::path(filename).parent_path().string();
 }
 
 ///Returns the path of a filename
 ///From http://www.richelbilderbeek.nl/CppGetPath.htm
-const std::string GetPathBoostXpressive(const std::string& filename)
+std::string GetPathBoostXpressive(const std::string& filename)
 {
   const boost::xpressive::sregex rex
     = boost::xpressive::sregex::compile(
