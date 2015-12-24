@@ -9,12 +9,12 @@
 int main()
 {
   boost::bimap<int,int> m;
-  typedef boost::bimap<int,int>::value_type Pair;
-  m.insert(Pair(1, 1));
-  m.insert(Pair(2, 4));
-  m.insert(Pair(3, 9));
-  m.insert(Pair(4,16));
-  m.insert(Pair(5,25));
+  typedef boost::bimap<int,int>::value_type my_pair;
+  m.insert(my_pair(1, 1));
+  m.insert(my_pair(2, 4));
+  m.insert(my_pair(3, 9));
+  m.insert(my_pair(4,16));
+  m.insert(my_pair(5,25));
   assert(m.left.find( 0) == m.left.end());
   assert(m.left.find( 4) != m.left.end());
   assert(m.left.find( 5) != m.left.end());
