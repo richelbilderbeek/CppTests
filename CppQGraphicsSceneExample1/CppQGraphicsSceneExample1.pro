@@ -1,3 +1,3 @@
-include(../../DesktopApplication.pri)
+include(../../RibiLibraries/DesktopApplication.pri)
 
 SOURCES += qtmain.cpp
