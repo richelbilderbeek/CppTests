@@ -1,10 +1,10 @@
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Weffc++"
-#pragma GCC diagnostic ignored "-Wunused-local-typedefs"
+#include <cassert>
+#include <iostream>
 #include <QApplication>
 #include <QGraphicsView>
 #include <QGraphicsSimpleTextItem>
-#pragma GCC diagnostic pop
+#include <QFile>
+#include <QTimer>
 
 void RenderScene(QGraphicsScene& s, const std::string& filename)
 {
@@ -14,6 +14,14 @@ void RenderScene(QGraphicsScene& s, const std::string& filename)
   painter.setRenderHint(QPainter::Antialiasing);
   s.render(&painter);
   image.save(filename.c_str());
+  if (QFile::exists(filename.c_str()))
+  {
+    assert(!"Fixed");
+  }
+  else
+  {
+    std::cerr << "Does not work" << std::endl;
+  }
 }
 
 int main(int argc, char *argv[])
