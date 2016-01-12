@@ -24,9 +24,9 @@ int main()
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) { x += 1.0; }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) { x -= 1.0; }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) { y -= 1.0; }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) { y += 1.0; }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left )) { x -= 1.0; }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up   )) { y -= 1.0; }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down )) { y += 1.0; }
 
     window.clear();
     window.draw(shape);
