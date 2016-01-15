@@ -1,9 +1,9 @@
-int AbsInt(const int n) { return n < 0 ? -n : n; }
+int AbsInt(const int n) noexcept { return n < 0 ? -n : n; }
 
-double AbsDouble(const double n) { return (n < 0 ? -n : n); }
+double AbsDouble(const double n) noexcept { return n < 0 ? -n : n; }
 
 template <class T>
-T Abs(const T n) { return n < 0 ? -n : n; }
+T Abs(const T n) noexcept { return n < 0 ? -n : n; }
 
 #include <cassert>
 #include <cmath>
