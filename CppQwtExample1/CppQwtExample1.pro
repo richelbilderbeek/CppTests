@@ -1,5 +1,5 @@
 #Qwt does not go together with Qwt
-include(../../DesktopApplicationNoWeffcpp.pri)
-include(../../Libraries/Qwt.pri)
+include(../../RibiLibraries/DesktopApplicationNoWeffcpp.pri)
+include(../../RibiLibraries/Qwt.pri)
 
 SOURCES += main.cpp
