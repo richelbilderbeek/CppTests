@@ -5,9 +5,9 @@
 int main()
 {
   sf::RenderWindow window(sf::VideoMode(1000,600), "SFML example 2");
-  sf::RectangleShape shape(sf::Vector2f(500.0,250.0));
+  sf::RectangleShape shape(sf::Vector2f(100.0,250.0));
   shape.setFillColor(sf::Color::Green);
-  shape.setOrigin(250.0,125.0);
+  shape.setOrigin(50.0,125.0);
   shape.setPosition(500,300);
   double angle = 0.0;
 
