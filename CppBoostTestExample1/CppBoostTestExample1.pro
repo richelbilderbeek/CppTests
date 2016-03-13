@@ -1,4 +1,4 @@
-include(../../ConsoleApplication.pri)
-include(../../Libraries/Boost.pri)
+include(../RibiLibraries/ConsoleApplication.pri)
+include(../RibiLibraries/Boost.pri)
 
 SOURCES += main.cpp
