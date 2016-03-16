@@ -25,5 +25,6 @@ int main()
     shape.setRotation(angle);
     window.display();
     angle += 1.0;
+    break; //
   }
 }
